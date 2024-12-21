@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentMyTeamBinding
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,16 +14,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentMyTeamBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.MyTeamAdapter
 import es.us.managemyteam.ui.viewmodel.MyTeamViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MyTeamFragment : BaseFragment<FragmentMyTeamBinding>(), BaseAdapterClickListener<UserBo> {
 
@@ -89,8 +89,8 @@ class MyTeamFragment : BaseFragment<FragmentMyTeamBinding>(), BaseAdapterClickLi
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
     override fun onAdapterItemClicked(item: UserBo, position: Int) {

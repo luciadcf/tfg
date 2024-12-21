@@ -1,7 +1,7 @@
 package es.us.managemyteam.util
 
 import android.content.Context
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 
 object EventUtil {
 

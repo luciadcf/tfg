@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentRegistrationBinding
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +10,13 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.RegistrationBo
 import es.us.managemyteam.data.model.Role
-import es.us.managemyteam.databinding.FragmentRegistrationBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.RegistrationViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
 
@@ -168,7 +168,7 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

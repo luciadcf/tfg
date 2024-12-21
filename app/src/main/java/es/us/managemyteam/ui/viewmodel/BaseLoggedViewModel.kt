@@ -17,7 +17,7 @@ open class BaseLoggedViewModel(private val getUserUc: GetUserUc) : ViewModel() {
     private val user = CustomMediatorLiveData<Resource<UserBo>>()
 
     fun getUserData() = user.apply {
-        user.setData(null)
+        //user.setData(null)
     }.liveData()
 
     fun getUser(uuid: String? = null) {

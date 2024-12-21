@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentEditUserProfileBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +12,12 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentEditUserProfileBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.UpdateUserProfileViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EditUserProfileFragment : BaseFragment<FragmentEditUserProfileBinding>() {
 
@@ -49,10 +49,10 @@ class EditUserProfileFragment : BaseFragment<FragmentEditUserProfileBinding>() {
                     super.onLoading(loading)
                     if (loading) {
                         viewBinding.editUserProfileContainerRoot.visibility = GONE
-                        viewBinding.editUserProfileProgressBar.startAnimation()
+                        viewBinding.editUserProfileProgressBar.visibility = VISIBLE
                     } else {
                         viewBinding.editUserProfileContainerRoot.visibility = VISIBLE
-                        viewBinding.editUserProfileProgressBar.stopAnimationAndHide()
+                        viewBinding.editUserProfileProgressBar.visibility = GONE
                     }
                 }
             })
@@ -138,8 +138,8 @@ class EditUserProfileFragment : BaseFragment<FragmentEditUserProfileBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 
 

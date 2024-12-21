@@ -45,7 +45,7 @@ class AcceptPlayersViewModel(
     }
 
     fun getAcceptPlayerData(): LiveData<Resource<Boolean>> {
-        acceptPlayerData.setData(null)
+        //acceptPlayerData.setData(null)
         return acceptPlayerData.liveData()
     }
 

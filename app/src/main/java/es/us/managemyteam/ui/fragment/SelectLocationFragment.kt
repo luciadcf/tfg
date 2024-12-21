@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentSelectLocationBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +11,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.LocationBo
-import es.us.managemyteam.databinding.FragmentSelectLocationBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.view.common_map.MapListener
 import es.us.managemyteam.ui.view.common_map.MarkerItemVo
 import es.us.managemyteam.ui.viewmodel.CreateEventViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SelectLocationFragment : BaseFragment<FragmentSelectLocationBinding>(), MapListener {
 
@@ -142,8 +142,8 @@ class SelectLocationFragment : BaseFragment<FragmentSelectLocationBinding>(), Ma
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 
     override fun onMapClicked(latLng: LatLng) {

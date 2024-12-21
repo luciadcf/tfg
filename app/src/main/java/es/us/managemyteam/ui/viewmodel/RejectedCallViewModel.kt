@@ -52,7 +52,7 @@ class RejectedCallViewModel(
     }
 
     fun getAcceptCallData(): LiveData<Resource<Boolean>> {
-        acceptCallData.setData(null)
+       // acceptCallData.setData(null)
         return acceptCallData.liveData()
     }
 

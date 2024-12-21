@@ -1,7 +1,10 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentSplashBinding
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -10,15 +13,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.FragmentSplashBinding
 import es.us.managemyteam.extension.hide
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             navigate()
         }, 3000)
     }
@@ -43,7 +44,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         activity?.findViewById<View>(R.id.main__view__toolbar_shadow)?.visibility = GONE
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

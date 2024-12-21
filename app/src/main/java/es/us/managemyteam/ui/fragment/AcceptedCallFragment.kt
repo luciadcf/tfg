@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentAcceptedCallsBinding
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,19 +14,17 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.contract.AcceptListener
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.contract.RejectReasonSendedListener
 import es.us.managemyteam.data.model.CallStatus
 import es.us.managemyteam.data.model.EventBo
-import es.us.managemyteam.databinding.FragmentAcceptedCallsBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.MyCallAdapter
 import es.us.managemyteam.ui.viewmodel.AcceptedCallViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AcceptedCallFragment : BaseFragment<FragmentAcceptedCallsBinding>(), AcceptListener,
     BaseAdapterClickListener<EventBo>, RejectReasonSendedListener {
@@ -125,8 +125,8 @@ class AcceptedCallFragment : BaseFragment<FragmentAcceptedCallsBinding>(), Accep
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 //endregion

@@ -1,10 +1,10 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.databinding.RowAcceptPlayerBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import es.us.managemyteam.contract.AcceptListener
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.RowAcceptPlayerBinding
 
 class AcceptPlayersAdapter(private val acceptListener: AcceptListener) :
     BaseAdapter<UserBo, RowAcceptPlayerBinding, AcceptPlayersAdapter.AcceptPlayersViewHolder>() {

@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentCreateEventBinding
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -15,11 +17,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.CallBo
 import es.us.managemyteam.data.model.EventBo
 import es.us.managemyteam.data.model.LocationBo
-import es.us.managemyteam.databinding.FragmentCreateEventBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
@@ -29,7 +29,7 @@ import es.us.managemyteam.ui.view.common_map.MarkerItemVo
 import es.us.managemyteam.ui.viewmodel.CreateEventViewModel
 import es.us.managemyteam.util.DateUtil
 import es.us.managemyteam.util.EventUtil
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Calendar.*
@@ -295,7 +295,7 @@ class CreateEventFragment : BaseFragment<FragmentCreateEventBinding>(), MapListe
     private fun setCurrentEvent() {
         val title = viewBinding.createEventEditTextTitle.text.trim()
         val sdf = SimpleDateFormat(getString(R.string.date_time_format), Locale.getDefault())
-        val date = if (!viewBinding.createEventEditTextDate.text.isBlank()) {
+        val date = if (viewBinding.createEventEditTextDate.text.isNotBlank()) {
             sdf.parse(viewBinding.createEventEditTextDate.text)
         } else {
             null
@@ -488,8 +488,8 @@ class CreateEventFragment : BaseFragment<FragmentCreateEventBinding>(), MapListe
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
     override fun onMapClicked(latLng: LatLng) {

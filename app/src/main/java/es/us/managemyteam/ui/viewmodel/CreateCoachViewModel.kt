@@ -3,7 +3,7 @@ package es.us.managemyteam.ui.viewmodel
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.constant.RegistrationError
 import es.us.managemyteam.data.model.Role
 import es.us.managemyteam.extension.isEmail

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 
 fun Fragment.popBack() {
     getFocusedView().hideKeyboard()

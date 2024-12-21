@@ -1,13 +1,13 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentMyCallsBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.FragmentMyCallsBinding
 import es.us.managemyteam.extension.setNavIcon
 import es.us.managemyteam.extension.setToolbarTitle
 import es.us.managemyteam.extension.show
@@ -47,8 +47,8 @@ class CallFragment : BaseFragment<FragmentMyCallsBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
     //endregion

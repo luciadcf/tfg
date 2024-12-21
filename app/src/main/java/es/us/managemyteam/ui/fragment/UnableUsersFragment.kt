@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentSelectPlayersBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentSelectPlayersBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.UnableUsersAdapter
 import es.us.managemyteam.ui.viewmodel.UnableUsersViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UnableUsersFragment : BaseFragment<FragmentSelectPlayersBinding>() {
 
@@ -96,7 +96,7 @@ class UnableUsersFragment : BaseFragment<FragmentSelectPlayersBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

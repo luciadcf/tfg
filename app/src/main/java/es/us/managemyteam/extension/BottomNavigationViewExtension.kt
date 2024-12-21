@@ -1,10 +1,10 @@
 package es.us.managemyteam.extension
 
+import es.managemyteam.app.R
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.ui.activity.MainActivity
 
 fun BottomNavigationView.hide() {

@@ -1,13 +1,13 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentTermsAndConditionsBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.FragmentTermsAndConditionsBinding
 import es.us.managemyteam.extension.hide
 import es.us.managemyteam.extension.popBack
 import es.us.managemyteam.util.HtmlUtil
@@ -42,8 +42,8 @@ class TermsAndConditionsFragment : BaseFragment<FragmentTermsAndConditionsBindin
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 
 }

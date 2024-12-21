@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.view.input
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.ViewEditableTextBinding
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -13,8 +15,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.ViewEditableTextBinding
 import es.us.managemyteam.extension.getStyleTypeArray
 import es.us.managemyteam.ui.view.input.CommonInputParams.DEFAULT_HEIGHT
 

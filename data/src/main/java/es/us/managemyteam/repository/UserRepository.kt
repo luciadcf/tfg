@@ -10,9 +10,9 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import es.managemyteam.data.R
 import es.us.managemyteam.constant.Preference
 import es.us.managemyteam.contract.PreferencesInterface
-import es.us.managemyteam.data.R
 import es.us.managemyteam.data.database.DatabaseTables
 import es.us.managemyteam.data.model.RegistrationBo
 import es.us.managemyteam.data.model.Role
@@ -121,7 +121,7 @@ class UserRepositoryImpl(
     }
 
     override suspend fun login(email: String, password: String): LiveData<Resource<String>> {
-        loginData.postValue(null)
+        //loginData.postValue(null)
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
@@ -152,7 +152,7 @@ class UserRepositoryImpl(
         uuid: String,
         password: String?
     ): LiveData<Resource<Boolean>> {
-        removeUserData.postValue(null)
+        //removeUserData.postValue(null)
         if (password == null) {
             removeUserFromDatabase(uuid)
         } else {
@@ -204,7 +204,7 @@ class UserRepositoryImpl(
         dorsal: Long?
     ): LiveData<Resource<Boolean>> {
         val currentUser = auth.currentUser
-        updateUserData.postValue(null)
+        //updateUserData.postValue(null)
         if (currentUser != null) {
             userTable.child(currentUser.uid).updateChildren(
                 mapOf(
@@ -228,7 +228,7 @@ class UserRepositoryImpl(
         currentPassword: String,
         email: String
     ): LiveData<Resource<Boolean>> {
-        updateEmailData.postValue(null)
+        //updateEmailData.postValue(null)
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val credentials = EmailAuthProvider.getCredential(
@@ -298,7 +298,7 @@ class UserRepositoryImpl(
         currentPassword: String,
         password: String
     ): LiveData<Resource<Boolean>> {
-        updatePasswordData.postValue(null)
+        //updatePasswordData.postValue(null)
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val credentials = EmailAuthProvider.getCredential(
@@ -320,7 +320,7 @@ class UserRepositoryImpl(
     }
 
     override suspend fun recoverPassword(email: String): LiveData<Resource<Boolean>> {
-        recoverPasswordData.postValue(null)
+        //recoverPasswordData.postValue(null)
         userTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 recoverPasswordData.value =
@@ -375,7 +375,7 @@ class UserRepositoryImpl(
     }
 
     override suspend fun getUserByUid(uid: String): LiveData<Resource<UserBo>> {
-        userData.postValue(null)
+        //userData.postValue(null)
         userTable.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 userData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -400,7 +400,7 @@ class UserRepositoryImpl(
     override suspend fun getUserDeviceIds(
         vararg userIds: String
     ): LiveData<Resource<List<Pair<String, String>>>> {
-        userDeviceIdsResponseData.postValue(null)
+        //userDeviceIdsResponseData.postValue(null)
         userTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 userDeviceIdsResponseData.value =

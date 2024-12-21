@@ -21,7 +21,7 @@ import es.us.managemyteam.extension.getAddressOfLatLng
 import es.us.managemyteam.extension.getLatLngOfAddress
 import es.us.managemyteam.extension.toLatLng
 import es.us.managemyteam.util.PermissionUtil
-import java.util.*
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 private val INTERVAL = TimeUnit.SECONDS.toMillis(10L)
@@ -104,7 +104,9 @@ class LocationManager(appContext: Context) : LocationInterface,
         }
         val location = currentLocation?.toLatLng()
 
-        locationData.value = location
+        location?.let {
+            locationData.value = it
+        }
 
         return location
     }
@@ -135,7 +137,13 @@ class LocationManager(appContext: Context) : LocationInterface,
 
     private fun startLocationUpdates() {
         try {
-            LocationServices.FusedLocationApi.requestLocationUpdates(client, locationRequest, this)
+            if (client != null && locationRequest != null) {
+                LocationServices.FusedLocationApi.requestLocationUpdates(
+                    client!!,
+                    locationRequest!!,
+                    this
+                )
+            }
         } catch (ex: SecurityException) {
             ex.printStackTrace()
         }
@@ -143,7 +151,9 @@ class LocationManager(appContext: Context) : LocationInterface,
 
     private fun stopLocationUpdates() {
         try {
-            LocationServices.FusedLocationApi.removeLocationUpdates(client, this)
+            client?.let {
+                LocationServices.FusedLocationApi.removeLocationUpdates(it, this)
+            }
         } catch (ex: IllegalStateException) {
             ex.printStackTrace()
         }
@@ -172,11 +182,23 @@ class LocationManager(appContext: Context) : LocationInterface,
 
     // LocationListener
 
-    override fun onLocationChanged(location: Location?) {
-        location?.let {
-            currentLocation = it
-            locationData.value = location.toLatLng()
-        }
+    override fun onLocationChanged(location: Location) {
+        currentLocation = location
+        locationData.value = location.toLatLng()
     }
 
+}
+
+inline fun <T : Any> guardLet(vararg elements: T?, closure: () -> Nothing): List<T> {
+    return if (elements.all { it != null }) {
+        elements.filterNotNull()
+    } else {
+        closure()
+    }
+}
+
+inline fun <T : Any> ifLet(vararg elements: T?, closure: (List<T>) -> Unit) {
+    if (elements.all { it != null }) {
+        closure(elements.filterNotNull())
+    }
 }

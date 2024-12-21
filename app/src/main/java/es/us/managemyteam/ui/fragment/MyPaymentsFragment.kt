@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentPaymentBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +11,14 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.PaymentBo
-import es.us.managemyteam.databinding.FragmentPaymentBinding
 import es.us.managemyteam.extension.setNavIcon
 import es.us.managemyteam.extension.setToolbarTitle
 import es.us.managemyteam.extension.show
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.MyPaymentsAdapter
 import es.us.managemyteam.ui.viewmodel.MyPaymentsViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MyPaymentsFragment : BaseFragment<FragmentPaymentBinding>() {
 
@@ -74,8 +74,8 @@ class MyPaymentsFragment : BaseFragment<FragmentPaymentBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 }

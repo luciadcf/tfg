@@ -1,26 +1,26 @@
 package es.us.managemyteam.repository.util
 
 import androidx.lifecycle.Observer
-import es.us.managemyteam.data.R
+import es.managemyteam.data.R
 
 abstract class ResourceObserver<T> : Observer<Resource<T>> {
 
-    override fun onChanged(resource: Resource<T>?) {
-        resource?.let {
-            when {
-                it.isSuccess() -> {
-                    onLoading(false)
-                    onSuccess(it.data)
+    override fun onChanged(value: Resource<T>) {
+        when {
+            value.isSuccess() -> {
+                onLoading(false)
+                onSuccess(value.data)
+            }
+
+            value.isError() -> {
+                onLoading(false)
+                value.error?.let { error ->
+                    onError(error)
                 }
-                it.isError() -> {
-                    onLoading(false)
-                     it.error?.let { error ->
-                        onError(error)
-                    }
-                }
-                else -> {
-                    onLoading(true)
-                }
+            }
+
+            else -> {
+                onLoading(true)
             }
         }
     }

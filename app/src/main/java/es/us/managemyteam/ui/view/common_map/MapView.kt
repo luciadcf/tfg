@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.view.common_map
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.ViewMapBinding
 import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
@@ -19,8 +21,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.ViewMapBinding
 import es.us.managemyteam.extension.getBounds
 import es.us.managemyteam.extension.getBoundsWithUserLocation
 import es.us.managemyteam.extension.toBitmapDescriptor
@@ -179,7 +179,9 @@ class MapView @JvmOverloads constructor(
         map?.let {
             marker.forEach { current ->
                 val googleMarker = it.addMarker(current.getGoogleMapMarker())
-                markers[googleMarker] = current
+                googleMarker?.let {
+                    markers[it] = current
+                }
             }
             if (markers.size > 1) {
                 if (showUserPosition) {
@@ -245,7 +247,7 @@ class MapView @JvmOverloads constructor(
                 )
             }
         } catch (ex: Exception) {
-            Log.e(javaClass.simpleName, ex.message)
+            Log.e(javaClass.simpleName, ex.message.orEmpty())
         }
     }
 
@@ -301,8 +303,8 @@ class MapView @JvmOverloads constructor(
 
     //region GoogleMap
 
-    override fun onMapReady(googleMap: GoogleMap?) {
-        googleMap?.apply {
+    override fun onMapReady(googleMap: GoogleMap) {
+        googleMap.apply {
             val googleMapOptions = GoogleMapOptions().liteMode(liteMode)
             mapType = googleMapOptions.mapType
         }
@@ -319,23 +321,19 @@ class MapView @JvmOverloads constructor(
         mapListener?.onMapReady()
     }
 
-    override fun onMarkerClick(marker: Marker?): Boolean {
-        marker?.let {
-            if (!liteMode) {
-                applyZoom(it.position, true, DEFAULT_ZOOM)
-            }
-            markers[it]?.let { vo ->
-                mapListener?.onMarkerClicked(vo)
-            }
+    override fun onMarkerClick(marker: Marker): Boolean {
+        if (!liteMode) {
+            applyZoom(marker.position, true, DEFAULT_ZOOM)
+        }
+        markers[marker]?.let { vo ->
+            mapListener?.onMarkerClicked(vo)
         }
 
         return true
     }
 
-    override fun onMapClick(latlng: LatLng?) {
-        latlng?.let {
-            mapListener?.onMapClicked(it)
-        }
+    override fun onMapClick(latlng: LatLng) {
+        mapListener?.onMapClicked(latlng)
     }
 
     //endregion

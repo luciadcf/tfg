@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.paypal.android.sdk.payments.ProofOfPayment
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.contract.PaypalInterface
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.Resource

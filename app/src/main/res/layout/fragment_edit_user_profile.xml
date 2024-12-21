@@ -96,13 +96,11 @@
 
     </ScrollView>
 
-    <com.bluehomestudio.progressimage.ProgressPicture
+    <ProgressBar
         android:id="@+id/edit_user_profile__progress_bar"
         android:layout_width="@dimen/size_eighty"
         android:layout_height="@dimen/size_eighty"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_soccer_ball"
-        app:animation="rotate"
+        android:indeterminateDrawable="@drawable/rotation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

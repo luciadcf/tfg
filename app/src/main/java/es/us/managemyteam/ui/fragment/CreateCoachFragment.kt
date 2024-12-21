@@ -1,20 +1,19 @@
 package es.us.managemyteam.ui.fragment
 
-import android.content.DialogInterface
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentCreateCoachBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.Role
-import es.us.managemyteam.databinding.FragmentCreateCoachBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.CreateCoachViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CreateCoachFragment : BaseFragment<FragmentCreateCoachBinding>() {
 
@@ -37,9 +36,8 @@ class CreateCoachFragment : BaseFragment<FragmentCreateCoachBinding>() {
                 override fun onError(error: Error) {
                     super.onError(error)
                     showErrorDialog(
-                        getString(error.errorMessageId),
-                        DialogInterface.OnClickListener { dialog, _ -> dialog.dismiss() }
-                    )
+                        getString(error.errorMessageId)
+                    ) { dialog, _ -> dialog.dismiss() }
                 }
 
                 override fun onLoading(loading: Boolean) {
@@ -91,7 +89,7 @@ class CreateCoachFragment : BaseFragment<FragmentCreateCoachBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

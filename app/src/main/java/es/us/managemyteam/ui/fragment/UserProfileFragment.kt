@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentUserProfileBinding
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
@@ -17,14 +19,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentUserProfileBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.UserProfileViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
@@ -100,10 +100,10 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
                 override fun onLoading(loading: Boolean) {
                     super.onLoading(loading)
-                    if (loading) {
-                        viewBinding.userProgressBar.startAnimation()
+                    viewBinding.userProgressBar.visibility = if (loading) {
+                        VISIBLE
                     } else {
-                        viewBinding.userProgressBar.stopAnimationAndHide()
+                        GONE
                     }
                 }
 
@@ -170,6 +170,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
                     userId,
                     passwordEditText.text.toString()
                 )
+
                 DialogInterface.BUTTON_NEGATIVE -> dialog.cancel()
             }
         }
@@ -217,8 +218,8 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 }

@@ -1,5 +1,6 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.extension.setNavAction
 import es.us.managemyteam.ui.activity.MainActivity
 
@@ -20,7 +20,7 @@ abstract class BaseFragment<Any : ViewBinding> : Fragment() {
 
     abstract fun setupToolbar(toolbar: Toolbar)
 
-    abstract fun setupBottomBar(bottomNavigationView: BottomNavigationView)
+    abstract fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView)
 
     fun getToolbar() = (activity as MainActivity).getToolbar()
 

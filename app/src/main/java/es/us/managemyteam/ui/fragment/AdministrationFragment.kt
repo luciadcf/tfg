@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentAdministrationBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +9,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.FragmentAdministrationBinding
 import es.us.managemyteam.extension.hide
 import es.us.managemyteam.extension.popBack
 
@@ -57,7 +57,7 @@ class AdministrationFragment : BaseFragment<FragmentAdministrationBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

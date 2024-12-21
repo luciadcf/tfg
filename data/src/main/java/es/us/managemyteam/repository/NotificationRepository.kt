@@ -26,12 +26,19 @@ class NotificationRepositoryImpl(
         message: String,
         vararg userIds: Pair<String, String>
     ): LiveData<Resource<Boolean>> {
-        notificationResponseData.postValue(null)
+        //notificationResponseData.postValue(null)
 
         val results = mutableListOf<Boolean>()
 
         userIds.forEach {
-            results.add(notificationApiDataSource.sendNotification(it.second, title, message, it.first))
+            results.add(
+                notificationApiDataSource.sendNotification(
+                    it.second,
+                    title,
+                    message,
+                    it.first
+                )
+            )
         }
 
         notificationResponseData.postValue(Resource.success(!results.contains(false)))

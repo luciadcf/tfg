@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:scrollbars="none"
-        android:padding="@dimen/size_ten">
+        android:padding="@dimen/size_ten"
+        android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -80,18 +80,18 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/club__container__date_fundation"
+                    android:id="@+id/club__container__date_foundation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_twenty"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/club__label__date_fundation_title"
+                        android:id="@+id/club__label__date_foundation_title"
                         style="@style/Regular.Twenty.Black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/edit_club_club_date_fundation" />
+                        android:text="@string/edit_club_club_date_foundation" />
 
                     <View
                         android:layout_width="@dimen/size_fourty"
@@ -100,7 +100,7 @@
                         android:background="@color/primary" />
 
                     <TextView
-                        android:id="@+id/club__label__date_fundation_value"
+                        android:id="@+id/club__label__date_foundation_value"
                         style="@style/Regular.Sixteen.Black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -291,12 +291,11 @@
 
     </ScrollView>
 
-    <com.bluehomestudio.progressimage.ProgressPicture
+    <ProgressBar
         android:id="@+id/club__progress_bar"
         android:layout_width="@dimen/size_eighty"
         android:layout_height="@dimen/size_eighty"
-        android:src="@drawable/ic_soccer_ball"
-        app:animation="rotate"
+        android:indeterminateDrawable="@drawable/rotation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -308,6 +307,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_sixteen"
         android:backgroundTint="@color/primary"
+        android:contentDescription="@null"
         android:src="@drawable/ic_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

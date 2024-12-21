@@ -1,13 +1,13 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.RowEventBinding
 import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import es.us.managemyteam.R
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.data.model.EventBo
-import es.us.managemyteam.databinding.RowEventBinding
 import es.us.managemyteam.util.DateUtil
 
 class EventsAdapter(private val itemListener: BaseAdapterClickListener<EventBo>) :

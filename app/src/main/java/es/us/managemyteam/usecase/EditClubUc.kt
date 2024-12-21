@@ -10,7 +10,7 @@ class EditClubUc(private val clubRepository: ClubRepository) {
     suspend operator fun invoke(
         uuid: String,
         name: String,
-        dateFundation: Date?,
+        dateFoundation: Date?,
         location: String,
         president: String,
         coach: String,
@@ -22,7 +22,7 @@ class EditClubUc(private val clubRepository: ClubRepository) {
         return clubRepository.editClub(
             uuid,
             name,
-            dateFundation,
+            dateFoundation,
             location,
             president,
             coach,

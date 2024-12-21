@@ -97,7 +97,7 @@ class EventRepositoryImpl : EventRepository {
     }
 
     override suspend fun getEventDetail(uuid: String): LiveData<Resource<EventBo>> {
-        eventDetail.postValue(null)
+        //eventDetail.postValue(null)
         eventsRef.child(uuid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 eventDetail.value = Resource.error(Error(serverErrorMessage = error.message))

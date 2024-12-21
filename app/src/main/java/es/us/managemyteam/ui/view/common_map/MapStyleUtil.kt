@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import androidx.core.content.ContextCompat
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.extension.tint
 
 class MapStyleUtil {

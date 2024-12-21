@@ -11,7 +11,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.constant.Preference
 import es.us.managemyteam.contract.PreferencesInterface
 import es.us.managemyteam.ui.activity.MainActivity

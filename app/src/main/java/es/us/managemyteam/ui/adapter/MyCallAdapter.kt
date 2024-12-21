@@ -1,5 +1,6 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.databinding.RowAcceptPlayerBinding
 import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -8,8 +9,7 @@ import es.us.managemyteam.contract.AcceptListener
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.data.model.CallStatus
 import es.us.managemyteam.data.model.EventBo
-import es.us.managemyteam.databinding.RowAcceptPlayerBinding
-import java.util.*
+import java.util.Date
 
 class MyCallAdapter(
     private val acceptListener: AcceptListener,
@@ -72,10 +72,12 @@ class MyCallAdapter(
                     viewBinding.rowAcceptPlayerBtnAccept.visibility = VISIBLE
                     viewBinding.rowAcceptPlayerBtnRefuse.visibility = VISIBLE
                 }
+
                 CallStatus.ACCEPTED -> {
                     viewBinding.rowAcceptPlayerBtnAccept.visibility = GONE
                     viewBinding.rowAcceptPlayerBtnRefuse.visibility = VISIBLE
                 }
+
                 else -> {
                     viewBinding.rowAcceptPlayerBtnAccept.visibility = VISIBLE
                     viewBinding.rowAcceptPlayerBtnRefuse.visibility = GONE

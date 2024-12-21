@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentLoginBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentLoginBinding
 import es.us.managemyteam.extension.getFocusedView
 import es.us.managemyteam.extension.hide
 import es.us.managemyteam.extension.hideKeyboard
@@ -21,7 +21,7 @@ import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.activity.MainActivity
 import es.us.managemyteam.ui.viewmodel.LoginViewModel
 import es.us.managemyteam.util.FirebaseAuthUtil
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
@@ -130,7 +130,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

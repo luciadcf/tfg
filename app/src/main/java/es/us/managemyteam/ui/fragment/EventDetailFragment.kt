@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentEventDetailBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +10,15 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.EventBo
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentEventDetailBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.PlayerAdapter
 import es.us.managemyteam.ui.viewmodel.EventDetailViewModel
 import es.us.managemyteam.util.DateUtil
 import es.us.managemyteam.util.PermissionUtil
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private val PERMISSIONS = arrayOf(android.Manifest.permission.WRITE_CALENDAR)
 
@@ -93,7 +93,8 @@ class EventDetailFragment : BaseFragment<FragmentEventDetailBinding>() {
     private fun saveEvent() {
         context?.startCalendarEvent(
             currentEvent?.title,
-            currentEvent?.date?.time
+            currentEvent?.date?.time,
+            currentEvent?.location
         )
     }
 
@@ -134,7 +135,7 @@ class EventDetailFragment : BaseFragment<FragmentEventDetailBinding>() {
             eventDetailLabelType.text = event.eventType
             eventDetailLabelBody.text = event.description
             playersAdapter?.setData(called)
-            playersAdapter?.notifyDataSetChanged()
+            playersAdapter?.notifyItemRangeChanged(0, called.size)
             if (called.isNotEmpty()) {
                 viewBinding.eventDetailListCalled.visibility = VISIBLE
                 viewBinding.eventDetailLabelCalled.visibility = VISIBLE
@@ -160,7 +161,7 @@ class EventDetailFragment : BaseFragment<FragmentEventDetailBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

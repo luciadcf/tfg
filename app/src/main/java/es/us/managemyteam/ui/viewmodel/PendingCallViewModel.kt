@@ -55,7 +55,7 @@ class PendingCallViewModel(
     }
 
     fun getAcceptCallData(): LiveData<Resource<Boolean>> {
-        acceptCallData.setData(null)
+        //acceptCallData.setData(null)
         return acceptCallData.liveData()
     }
 
@@ -72,7 +72,7 @@ class PendingCallViewModel(
     }
 
     fun getRejectCallData(): LiveData<Resource<Boolean>> {
-        rejectCallData.setData(null)
+        //rejectCallData.setData(null)
         return rejectCallData.liveData()
     }
 

@@ -6,7 +6,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 
 fun Toolbar.setNavAction(listener: (View) -> Unit) {
     setNavigationOnClickListener(listener)

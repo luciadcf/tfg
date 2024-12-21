@@ -88,7 +88,7 @@
     <!-- Club module -->
     <string name="club">Club</string>
     <string name="edit_club_club_name">Nombre</string>
-    <string name="edit_club_club_date_fundation">Fecha de fundación</string>
+    <string name="edit_club_club_date_foundation">Fecha de fundación</string>
     <string name="edit_club_club_president">Presidente</string>
     <string name="edit_club_club_coach">Entrenador</string>
     <string name="edit_club_club_location">Ubicación</string>
@@ -98,7 +98,7 @@
     <string name="edit_club_success">Datos del club editados correctamente</string>
     <string name="edit_club_title">Editar datos del club</string>
     <string name="edit_club_error_name">Debe introducir un nombre\n</string>
-    <string name="edit_club_error_date_fundation">Debe introducir una fecha\n</string>
+    <string name="edit_club_error_date_foundation">Debe introducir una fecha\n</string>
     <string name="edit_club_error_location">Debe introducir una dirección\n</string>
     <string name="edit_club_error_president">Debe introducir el nombre del presidente\n</string>
     <string name="edit_club_error_coach">Debe introducir el nombre del entrenador\n</string>

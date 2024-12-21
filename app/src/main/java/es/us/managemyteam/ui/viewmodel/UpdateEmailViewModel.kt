@@ -1,7 +1,7 @@
 package es.us.managemyteam.ui.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.extension.isEmail
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.Resource

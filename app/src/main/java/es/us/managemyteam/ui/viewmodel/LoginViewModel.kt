@@ -3,7 +3,7 @@ package es.us.managemyteam.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.data.model.UserBo
 import es.us.managemyteam.extension.isEmail
 import es.us.managemyteam.repository.util.Error
@@ -22,7 +22,7 @@ class LoginViewModel(private val loginUc: LoginUc, private val getUserUc: GetUse
 
     fun getLoginData(): LiveData<Resource<String>> {
         return login.apply {
-            setData(null)
+            //setData(null)
         }.liveData()
     }
 
@@ -40,13 +40,13 @@ class LoginViewModel(private val loginUc: LoginUc, private val getUserUc: GetUse
         }
 
     fun getUserData(): LiveData<Resource<UserBo>> {
-        user.setData(null)
+        //user.setData(null)
         return user.liveData()
     }
 
     fun getUser(uid: String) =
         viewModelScope.launch(Dispatchers.Main) {
-            user.setData(null)
+            //user.setData(null)
             user.setData(Resource.loading(null))
             withContext(Dispatchers.IO) {
                 user.changeSource(Dispatchers.Main, getUserUc(uid))

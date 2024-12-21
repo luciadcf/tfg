@@ -58,7 +58,7 @@ class CallRepositoryImpl : CallRepository {
     private val rejectedCallsData = MutableLiveData<Resource<List<EventBo>>>()
 
     override suspend fun getAcceptedCallsByUserId(userUuid: String): LiveData<Resource<List<EventBo>>> {
-        acceptedCallsData.postValue(null)
+        //acceptedCallsData.postValue(null)
         eventTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 acceptedCallsData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -85,7 +85,7 @@ class CallRepositoryImpl : CallRepository {
     }
 
     override suspend fun getPendingCallsByUserId(userUuid: String): LiveData<Resource<List<EventBo>>> {
-        pendingCallsData.postValue(null)
+        //pendingCallsData.postValue(null)
         eventTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 pendingCallsData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -112,7 +112,7 @@ class CallRepositoryImpl : CallRepository {
     }
 
     override suspend fun getRejectedCallsByUserId(userUuid: String): LiveData<Resource<List<EventBo>>> {
-        rejectedCallsData.postValue(null)
+        //rejectedCallsData.postValue(null)
         eventTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 rejectedCallsData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -142,7 +142,7 @@ class CallRepositoryImpl : CallRepository {
         uuid: String,
         userUuid: String
     ): LiveData<Resource<Boolean>> {
-        callAcceptedPendingData.postValue(null)
+        //callAcceptedPendingData.postValue(null)
         val callRef = eventTable.child(uuid).child("call").child("called")
         callRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -178,7 +178,7 @@ class CallRepositoryImpl : CallRepository {
         userUuid: String,
         observation: String
     ): LiveData<Resource<Boolean>> {
-        callRejectedPendingData.postValue(null)
+        //callRejectedPendingData.postValue(null)
         val callRef = eventTable.child(uuid).child("call").child("called")
         callRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -215,7 +215,7 @@ class CallRepositoryImpl : CallRepository {
         uuid: String,
         userUuid: String
     ): LiveData<Resource<Boolean>> {
-        callAcceptedRejectData.postValue(null)
+        //callAcceptedRejectData.postValue(null)
         val callRef = eventTable.child(uuid).child("call").child("called")
         callRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -250,7 +250,7 @@ class CallRepositoryImpl : CallRepository {
         userUuid: String,
         observation: String
     ): LiveData<Resource<Boolean>> {
-        callRejectedAcceptData.postValue(null)
+        //callRejectedAcceptData.postValue(null)
         val callRef = eventTable.child(uuid).child("call").child("called")
         callRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {

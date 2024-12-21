@@ -2,7 +2,7 @@ package es.us.managemyteam.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.data.model.ClubBo
 import es.us.managemyteam.extension.isEmail
 import es.us.managemyteam.extension.isPhone
@@ -46,7 +46,7 @@ class EditClubViewModel(
     fun editClub(
         uuid: String,
         name: String,
-        dateFundation: Date?,
+        dateFoundation: Date?,
         location: String,
         president: String,
         coach: String,
@@ -57,7 +57,7 @@ class EditClubViewModel(
         viewModelScope.launch(Dispatchers.Main) {
             if (validateForm(
                     name,
-                    dateFundation.toString(),
+                    dateFoundation.toString(),
                     location,
                     president,
                     coach,
@@ -72,7 +72,7 @@ class EditClubViewModel(
                         editClubUc(
                             uuid,
                             name,
-                            dateFundation,
+                            dateFoundation,
                             location,
                             president,
                             coach,
@@ -86,13 +86,13 @@ class EditClubViewModel(
         }
 
     fun editClubData(): LiveData<Resource<Boolean>> {
-        editClub.setData(null)
+        //editClub.setData(null)
         return editClub.liveData()
     }
 
     private fun validateForm(
         name: String,
-        dateFundation: String,
+        dateFoundation: String,
         location: String,
         president: String,
         coach: String,
@@ -109,10 +109,10 @@ class EditClubViewModel(
                 )
                 false
             }
-            dateFundation.isBlank() -> {
+            dateFoundation.isBlank() -> {
                 editClub.setData(
                     Resource.error(
-                        Error(R.string.edit_club_error_date_fundation)
+                        Error(R.string.edit_club_error_date_foundation)
                     )
                 )
                 false

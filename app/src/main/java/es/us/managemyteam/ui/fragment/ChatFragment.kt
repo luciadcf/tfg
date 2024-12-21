@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentChatBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +9,14 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.MessageBo
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentChatBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.MessageAdapter
 import es.us.managemyteam.ui.view.input.EditableTextChangeListener
 import es.us.managemyteam.ui.viewmodel.ChatViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChatFragment : BaseFragment<FragmentChatBinding>() {
 
@@ -115,8 +115,8 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 }

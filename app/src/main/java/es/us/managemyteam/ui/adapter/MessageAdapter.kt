@@ -1,11 +1,11 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.databinding.RowChatIncomingBinding
+import es.managemyteam.app.databinding.RowChatOutgoingBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import es.us.managemyteam.data.model.MessageBo
-import es.us.managemyteam.databinding.RowChatIncomingBinding
-import es.us.managemyteam.databinding.RowChatOutgoingBinding
 import es.us.managemyteam.util.DateUtil
 
 private const val VIEW_TYPE_INCOME = 0

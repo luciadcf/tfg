@@ -5,6 +5,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,7 @@ class CustomMediatorLiveData<Type> : Observer<Type> {
     }
 
     //region Public methods
+    @OptIn(DelicateCoroutinesApi::class)
     fun changeSource(
         dispatcher: CoroutineDispatcher,
         source: LiveData<Type>
@@ -51,7 +53,7 @@ class CustomMediatorLiveData<Type> : Observer<Type> {
     //endregion
 
     //region override Observer<Type>
-    override fun onChanged(value: Type?) {
+    override fun onChanged(value: Type) {
         mediatorLiveData.postValue(value)
     }
     //endregion

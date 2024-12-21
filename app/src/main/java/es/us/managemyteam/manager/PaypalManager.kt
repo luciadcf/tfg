@@ -6,14 +6,19 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.paypal.android.sdk.payments.*
+import com.paypal.android.sdk.payments.PayPalConfiguration
+import com.paypal.android.sdk.payments.PayPalPayment
+import com.paypal.android.sdk.payments.PayPalService
+import com.paypal.android.sdk.payments.PaymentActivity
+import com.paypal.android.sdk.payments.PaymentConfirmation
+import com.paypal.android.sdk.payments.ShippingAddress
 import es.us.managemyteam.contract.PaypalInterface
 import es.us.managemyteam.data.model.PaypalConfigBo
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.AdminPaypalViewModel
 import org.json.JSONException
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.math.BigDecimal
 
 private const val REQUEST_CODE_PAYMENT = 1

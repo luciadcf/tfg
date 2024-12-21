@@ -1,12 +1,12 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.databinding.FragmentRecoverPasswordBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.databinding.FragmentRecoverPasswordBinding
 import es.us.managemyteam.extension.hide
 import es.us.managemyteam.extension.popBack
 import es.us.managemyteam.extension.showErrorDialog
@@ -14,7 +14,7 @@ import es.us.managemyteam.extension.showInformationDialog
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.RecoverPasswordViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecoverPasswordFragment : BaseFragment<FragmentRecoverPasswordBinding>() {
 
@@ -67,7 +67,7 @@ class RecoverPasswordFragment : BaseFragment<FragmentRecoverPasswordBinding>() {
         toolbar.hide()
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 }

@@ -1,7 +1,7 @@
 package es.us.managemyteam.data.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 open class BaseBo(
     var uuid: String? = null

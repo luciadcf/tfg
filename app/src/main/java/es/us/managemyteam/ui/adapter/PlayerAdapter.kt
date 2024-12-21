@@ -1,14 +1,14 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.RowPlayerBinding
 import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.CallStatus
 import es.us.managemyteam.data.model.UserCalledBo
-import es.us.managemyteam.databinding.RowPlayerBinding
 
 class PlayerAdapter(private val userIsPlayer: Boolean) :
     BaseAdapter<UserCalledBo, RowPlayerBinding, PlayerAdapter.PlayerViewHolder>() {
@@ -60,10 +60,12 @@ class PlayerAdapter(private val userIsPlayer: Boolean) :
                     context,
                     R.drawable.ic_accept
                 )
+
                 CallStatus.DENIED.ordinal -> ContextCompat.getDrawable(
                     context,
                     R.drawable.ic_refuse
                 )
+
                 else -> ContextCompat.getDrawable(context, R.drawable.ic_pending)
             }
 

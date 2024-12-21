@@ -1,11 +1,11 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.databinding.RowSelectPlayerBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import es.us.managemyteam.contract.UserSelectedListener
 import es.us.managemyteam.data.model.Role
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.RowSelectPlayerBinding
 
 class UnableUsersAdapter :
     BaseAdapter<UserBo, RowSelectPlayerBinding, UnableUsersAdapter.UnableUserViewHolder>(),
@@ -27,7 +27,7 @@ class UnableUsersAdapter :
         viewBinding: RowSelectPlayerBinding,
         private val playerSelectedListener: UserSelectedListener
     ) :
-        BaseAdapter.BaseViewHolder<UserBo, RowSelectPlayerBinding>(viewBinding) {
+        BaseViewHolder<UserBo, RowSelectPlayerBinding>(viewBinding) {
         override fun setup(viewBinding: RowSelectPlayerBinding, item: UserBo) {
             viewBinding.rowSelectPlayerLabelName.text =
                 item.getFullName().plus(getStringRole(item.role))

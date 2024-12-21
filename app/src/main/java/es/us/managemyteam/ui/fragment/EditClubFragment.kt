@@ -11,18 +11,27 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentEditClubBinding
 import es.us.managemyteam.data.model.ClubBo
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentEditClubBinding
-import es.us.managemyteam.extension.*
+import es.us.managemyteam.extension.getFocusedView
+import es.us.managemyteam.extension.hide
+import es.us.managemyteam.extension.hideKeyboard
+import es.us.managemyteam.extension.popBack
+import es.us.managemyteam.extension.setNavAction
+import es.us.managemyteam.extension.setNavIcon
+import es.us.managemyteam.extension.setToolbarTitle
+import es.us.managemyteam.extension.show
+import es.us.managemyteam.extension.showErrorDialog
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.EditClubViewModel
 import es.us.managemyteam.util.DateUtil
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 const val CLUB_DATE_FORMAT = "dd/MM/yyyy"
 
@@ -75,10 +84,10 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
                     super.onLoading(loading)
                     if (loading) {
                         viewBinding.editClubContainerContent.visibility = GONE
-                        viewBinding.clubProgressBar.startAnimation()
+                        viewBinding.clubProgressBar.visibility = VISIBLE
                     } else {
                         viewBinding.editClubContainerContent.visibility = VISIBLE
-                        viewBinding.clubProgressBar.stopAnimationAndHide()
+                        viewBinding.clubProgressBar.visibility = GONE
                     }
                 }
 
@@ -132,11 +141,11 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
     private fun setupView(club: ClubBo) {
         viewBinding.editClubEditName.setText(club.name)
         selectedDate = Calendar.getInstance().apply {
-            if (club.dateFundation != null) {
-                time = club.dateFundation
+            if (club.dateFoundation != null) {
+                time = club.dateFoundation
             }
         }
-        viewBinding.editClubEditDateFundation.setText(club.dateFundation?.let {
+        viewBinding.editClubEditDateFoundation.setText(club.dateFoundation?.let {
             DateUtil.format(
                 it,
                 CLUB_DATE_FORMAT
@@ -155,8 +164,8 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
     private fun clickOnSave() {
         val name = viewBinding.editClubEditName.text.trim()
         val sdf = SimpleDateFormat(CLUB_DATE_FORMAT, Locale.getDefault())
-        val dateFundation = if (!viewBinding.editClubEditDateFundation.text.isBlank()) {
-            sdf.parse(viewBinding.editClubEditDateFundation.text)
+        val dateFoundation = if (viewBinding.editClubEditDateFoundation.text.isNotBlank()) {
+            sdf.parse(viewBinding.editClubEditDateFoundation.text)
         } else {
             null
         }
@@ -172,7 +181,7 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
         editClubViewModel.editClub(
             clubUuid,
             name,
-            dateFundation,
+            dateFoundation,
             location,
             president,
             coach,
@@ -184,12 +193,12 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
 
     private fun setupDateClickListener() {
 
-        viewBinding.editClubEditDateFundation.clickListener {
+        viewBinding.editClubEditDateFoundation.clickListener {
             showDateDialog(
-                selectedDate ?: Calendar.getInstance(),
-                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                    updateSelectedDate(dayOfMonth, month + 1, year)
-                })
+                selectedDate ?: Calendar.getInstance()
+            ) { _, year, month, dayOfMonth ->
+                updateSelectedDate(dayOfMonth, month + 1, year)
+            }
         }
     }
 
@@ -203,7 +212,7 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
             set(Calendar.MONTH, month)
             set(Calendar.YEAR, year)
         }
-        viewBinding.editClubEditDateFundation.setText(
+        viewBinding.editClubEditDateFoundation.setText(
             String.format(
                 getString(R.string.edit_club_date_format),
                 day,
@@ -243,8 +252,8 @@ class EditClubFragment : BaseFragment<FragmentEditClubBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.hide()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.hide()
     }
 
 

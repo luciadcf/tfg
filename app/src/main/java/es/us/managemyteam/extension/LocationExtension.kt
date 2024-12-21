@@ -3,7 +3,7 @@ package es.us.managemyteam.extension
 import android.location.Location
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.LatLng
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.data.model.MyLatLng
 import es.us.managemyteam.ui.view.common_map.MapView
 import es.us.managemyteam.ui.view.common_map.MarkerItemVo

@@ -3,7 +3,7 @@ package es.us.managemyteam.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.data.model.CallBo
 import es.us.managemyteam.data.model.EventBo
 import es.us.managemyteam.data.model.LocationBo
@@ -50,12 +50,12 @@ class CreateEventViewModel(
     }
 
     fun getDeviceIds(): LiveData<Resource<List<Pair<String, String>>>> {
-        deviceIds.setData(null)
+        //deviceIds.setData(null)
         return deviceIds.liveData()
     }
 
     fun getNotification(): LiveData<Resource<Boolean>> {
-        notificationSent.setData(null)
+        //notificationSent.setData(null)
         return notificationSent.liveData()
     }
 
@@ -102,7 +102,7 @@ class CreateEventViewModel(
     }
 
     fun createEventData(): LiveData<Resource<EventBo>> {
-        createEvent.setData(null)
+        //createEvent.setData(null)
         return createEvent.liveData()
     }
 

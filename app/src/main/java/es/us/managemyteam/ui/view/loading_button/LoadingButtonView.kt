@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.view.loading_button
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.ViewLoadingButtonBinding
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
@@ -7,8 +9,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import es.us.managemyteam.R
-import es.us.managemyteam.databinding.ViewLoadingButtonBinding
 import es.us.managemyteam.extension.NO_STYLE
 import es.us.managemyteam.extension.getColor
 import es.us.managemyteam.extension.getStyleTypeArray

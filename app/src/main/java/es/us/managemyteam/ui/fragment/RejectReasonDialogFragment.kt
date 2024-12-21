@@ -1,5 +1,6 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.databinding.DialogRejectReasonBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import es.us.managemyteam.contract.RejectReasonSendedListener
-import es.us.managemyteam.databinding.DialogRejectReasonBinding
 
 const val DIALOG_REJECT_REASON = "dialog_reject_reason"
 const val ARG_UUID = "arg_uuid"

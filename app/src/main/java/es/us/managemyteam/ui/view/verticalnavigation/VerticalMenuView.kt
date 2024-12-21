@@ -1,20 +1,20 @@
 package es.us.managemyteam.ui.view.verticalnavigation
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.ViewVerticalMenuBinding
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import es.us.managemyteam.R
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.ViewVerticalMenuBinding
 import es.us.managemyteam.extension.getBaseActivity
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.activity.MainActivity
 import es.us.managemyteam.ui.viewmodel.MenuViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class VerticalMenuView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

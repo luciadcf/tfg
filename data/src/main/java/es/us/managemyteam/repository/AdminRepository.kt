@@ -33,7 +33,7 @@ class AdminRepositoryImpl : AdminRepository {
     private val usersEnabledData = MutableLiveData<Resource<Boolean>>()
 
     override suspend fun getPlayers(enabled: Boolean): LiveData<Resource<List<UserBo>>> {
-        playersData.postValue(null)
+        //playersData.postValue(null)
         userTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 playersData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -55,7 +55,7 @@ class AdminRepositoryImpl : AdminRepository {
     }
 
     override suspend fun acceptPlayer(uuid: String): LiveData<Resource<Boolean>> {
-        playerNotEnabledData.postValue(null)
+        //playerNotEnabledData.postValue(null)
         userTable.child(uuid).child("enable")
             .setValue(true) { error, _ ->
                 playerNotEnabledData.value = if (error != null) {
@@ -69,7 +69,7 @@ class AdminRepositoryImpl : AdminRepository {
     }
 
     override suspend fun rejectPlayer(uuid: String): LiveData<Resource<Boolean>> {
-        playerNotEnabledData.postValue(null)
+        //playerNotEnabledData.postValue(null)
         userTable.child(uuid).child("enable")
             .setValue(false) { error, _ ->
                 playerNotEnabledData.value = if (error != null) {
@@ -83,7 +83,7 @@ class AdminRepositoryImpl : AdminRepository {
     }
 
     override suspend fun getUsers(): LiveData<Resource<List<UserBo>>> {
-        usersData.postValue(null)
+        //usersData.postValue(null)
         userTable.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 usersData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -103,7 +103,7 @@ class AdminRepositoryImpl : AdminRepository {
     }
 
     override suspend fun updateUsersEnable(users: List<UserBo>): LiveData<Resource<Boolean>> {
-        usersEnabledData.postValue(null)
+        //usersEnabledData.postValue(null)
         users.forEach {
             it.uuid?.let { uuid ->
                 userTable.child(uuid).updateChildren(

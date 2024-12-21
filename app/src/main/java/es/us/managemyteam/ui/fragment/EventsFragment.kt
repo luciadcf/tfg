@@ -1,19 +1,24 @@
 package es.us.managemyteam.ui.fragment
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentEventsBinding
 import es.us.managemyteam.contract.BaseAdapterClickListener
 import es.us.managemyteam.data.model.EventBo
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentEventsBinding
 import es.us.managemyteam.extension.setNavIcon
 import es.us.managemyteam.extension.setToolbarTitle
 import es.us.managemyteam.extension.show
@@ -22,7 +27,7 @@ import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.adapter.EventsAdapter
 import es.us.managemyteam.ui.viewmodel.EventsViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventsFragment : BaseFragment<FragmentEventsBinding>(), BaseAdapterClickListener<EventBo> {
 
@@ -92,6 +97,7 @@ class EventsFragment : BaseFragment<FragmentEventsBinding>(), BaseAdapterClickLi
                 findNavController().navigate(R.id.action_events_to_past_events)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -102,7 +108,7 @@ class EventsFragment : BaseFragment<FragmentEventsBinding>(), BaseAdapterClickLi
                 override fun onSuccess(response: List<EventBo>?) {
                     response?.let {
                         eventsAdapter?.setData(it.sortedBy { event -> event.date })
-                        eventsAdapter?.notifyDataSetChanged()
+                        eventsAdapter?.notifyItemRangeChanged(0, response.size)
 
                         if (it.isNotEmpty()) {
                             viewBinding.eventsEmptyResults.root.visibility = GONE
@@ -161,8 +167,8 @@ class EventsFragment : BaseFragment<FragmentEventsBinding>(), BaseAdapterClickLi
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 }

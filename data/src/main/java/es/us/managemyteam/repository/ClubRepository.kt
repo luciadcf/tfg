@@ -19,7 +19,7 @@ interface ClubRepository {
     suspend fun editClub(
         uuid: String,
         name: String,
-        dateFundation: Date?,
+        dateFoundation: Date?,
         location: String,
         president: String,
         coach: String,
@@ -47,7 +47,7 @@ class ClubRepositoryImpl : ClubRepository {
     override suspend fun editClub(
         uuid: String,
         name: String,
-        dateFundation: Date?,
+        dateFoundation: Date?,
         location: String,
         president: String,
         coach: String,
@@ -57,7 +57,7 @@ class ClubRepositoryImpl : ClubRepository {
     ): LiveData<Resource<Boolean>> {
         val newClub =
             ClubBo(
-                name, dateFundation, location, president, coach, phoneNumber, mail, web
+                name, dateFoundation, location, president, coach, phoneNumber, mail, web
             ).apply {
                 this.uuid = uuid
             }

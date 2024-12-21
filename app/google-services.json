@@ -3,7 +3,7 @@
     "project_number": "725431545447",
     "firebase_url": "https://tfg-manage-team.firebaseio.com",
     "project_id": "tfg-manage-team",
-    "storage_bucket": "tfg-manage-team.appspot.com"
+    "storage_bucket": "tfg-manage-team.firebasestorage.app"
   },
   "client": [
     {

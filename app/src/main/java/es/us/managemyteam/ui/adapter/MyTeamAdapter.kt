@@ -1,9 +1,9 @@
 package es.us.managemyteam.ui.adapter
 
+import es.managemyteam.app.databinding.RowMyTeamUserBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.RowMyTeamUserBinding
 
 class MyTeamAdapter : BaseAdapter<UserBo, RowMyTeamUserBinding, MyTeamAdapter.MyTeamViewHolder>() {
 

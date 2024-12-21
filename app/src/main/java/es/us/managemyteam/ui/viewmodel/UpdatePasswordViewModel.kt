@@ -2,7 +2,7 @@ package es.us.managemyteam.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.Resource
 import es.us.managemyteam.usecase.AcceptPlayerUc
@@ -32,12 +32,12 @@ class UpdatePasswordViewModel(
     }
 
     fun getEnableUserData(): LiveData<Resource<Boolean>> {
-        enableUser.setData(null)
+        //enableUser.setData(null)
         return enableUser.liveData()
     }
 
     fun getUpdatePasswordData(): LiveData<Resource<Boolean>> {
-        updatePassword.setData(null)
+        //updatePassword.setData(null)
         return updatePassword.liveData()
     }
 

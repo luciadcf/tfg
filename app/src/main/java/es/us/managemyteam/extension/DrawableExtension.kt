@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
@@ -25,6 +27,6 @@ fun Drawable.tint(color: Int) {
     if (this is GradientDrawable) {
         this.setColor(color)
     } else {
-        setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        BlendModeColorFilterCompat.createBlendModeColorFilterCompat(color, BlendModeCompat.SRC_ATOP)
     }
 }

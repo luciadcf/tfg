@@ -1,7 +1,7 @@
 package es.us.managemyteam.ui.view.verticalnavigation
 
 import android.content.Context
-import es.us.managemyteam.R
+import es.managemyteam.app.R
 
 data class VerticalMenuVO(val id: VerticalMenuId, val title: String, val icon: Int) {
 

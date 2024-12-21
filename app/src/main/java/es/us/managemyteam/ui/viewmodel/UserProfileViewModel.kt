@@ -27,7 +27,7 @@ class UserProfileViewModel(
     }
 
     fun getRemoveUserData(): LiveData<Resource<Boolean>> {
-        removeUserData.setData(null)
+        //removeUserData.setData(null)
         return removeUserData.liveData()
     }
 

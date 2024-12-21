@@ -1,5 +1,7 @@
 package es.us.managemyteam.ui.fragment
 
+import es.managemyteam.app.R
+import es.managemyteam.app.databinding.FragmentClubBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +11,14 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import es.us.managemyteam.R
 import es.us.managemyteam.data.model.ClubBo
 import es.us.managemyteam.data.model.UserBo
-import es.us.managemyteam.databinding.FragmentClubBinding
 import es.us.managemyteam.extension.*
 import es.us.managemyteam.repository.util.Error
 import es.us.managemyteam.repository.util.ResourceObserver
 import es.us.managemyteam.ui.viewmodel.ClubViewModel
 import es.us.managemyteam.util.DateUtil
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ClubFragment : BaseFragment<FragmentClubBinding>() {
 
@@ -51,11 +51,7 @@ class ClubFragment : BaseFragment<FragmentClubBinding>() {
 
                 override fun onLoading(loading: Boolean) {
                     super.onLoading(loading)
-                    if (loading) {
-                        viewBinding.clubProgressBar.startAnimation()
-                    } else {
-                        viewBinding.clubProgressBar.stopAnimationAndHide()
-                    }
+                    viewBinding.clubProgressBar.visibility = if (loading) VISIBLE else GONE
                 }
 
             })
@@ -82,8 +78,13 @@ class ClubFragment : BaseFragment<FragmentClubBinding>() {
 
     private fun setupView(club: ClubBo) {
         viewBinding.clubLabelNameValue.text = club.name
-        viewBinding.clubLabelDateFundationValue.text =
-            club.dateFundation?.let { DateUtil.format(it, CLUB_DATE_FORMAT) }
+        viewBinding.clubLabelDateFoundationValue.apply {
+            if (club.dateFoundation != null) {
+                text = DateUtil.format(club.dateFoundation!!, CLUB_DATE_FORMAT)
+            } else {
+                visibility = GONE
+            }
+        }
         viewBinding.clubLabelPresidentValue.text = club.president
         viewBinding.clubLabelCoachValue.text = club.coach
         viewBinding.clubLabelLocationValue.text = club.location
@@ -113,8 +114,8 @@ class ClubFragment : BaseFragment<FragmentClubBinding>() {
         }
     }
 
-    override fun setupBottomBar(bottomNavigationView: BottomNavigationView) {
-        bottomNavigationView.show()
+    override fun setupBottomBar(bottomBottomNavigationView: BottomNavigationView) {
+        bottomBottomNavigationView.show()
     }
 
 }

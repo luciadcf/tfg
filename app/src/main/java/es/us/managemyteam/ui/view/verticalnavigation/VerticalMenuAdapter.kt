@@ -1,8 +1,8 @@
 package es.us.managemyteam.ui.view.verticalnavigation
 
+import es.managemyteam.app.databinding.RowVerticalMenuBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import es.us.managemyteam.databinding.RowVerticalMenuBinding
 import es.us.managemyteam.ui.adapter.BaseAdapter
 
 class VerticalMenuAdapter(

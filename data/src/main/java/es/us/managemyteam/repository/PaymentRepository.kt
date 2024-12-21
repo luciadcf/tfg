@@ -34,7 +34,7 @@ class PaymentRepositoryImpl : PaymentRepository {
     private val createPaypalConfigData = MutableLiveData<Resource<Boolean>>()
 
     override suspend fun getMyPayments(): LiveData<Resource<List<PaymentBo>>> {
-        myPaymentsData.postValue(null)
+        //myPaymentsData.postValue(null)
         paymentsRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 myPaymentsData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -55,7 +55,7 @@ class PaymentRepositoryImpl : PaymentRepository {
         val newPayment = payment.apply {
             userUuid = auth.currentUser?.uid
         }
-        paymentData.postValue(null)
+        //paymentData.postValue(null)
         paymentsRef.push().setValue(newPayment) { databaseError, ref ->
             if (databaseError == null) {
                 ref.updateChildren(
@@ -74,7 +74,7 @@ class PaymentRepositoryImpl : PaymentRepository {
     }
 
     override suspend fun getPaypalConfig(): LiveData<Resource<PaypalConfigBo>> {
-        paypalConfigData.postValue(null)
+        //paypalConfigData.postValue(null)
         paypalConfigRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 paypalConfigData.value = Resource.error(Error(serverErrorMessage = error.message))
@@ -92,7 +92,7 @@ class PaymentRepositoryImpl : PaymentRepository {
     }
 
     override suspend fun createPaypalConfig(paypalConfig: PaypalConfigBo): LiveData<Resource<Boolean>> {
-        createPaypalConfigData.postValue(null)
+        //createPaypalConfigData.postValue(null)
         paypalConfigRef.setValue(paypalConfig).addOnCompleteListener {
             if (it.isSuccessful) {
                 createPaypalConfigData.value = Resource.success(true)

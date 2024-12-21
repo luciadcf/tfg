@@ -1,13 +1,15 @@
 package es.us.managemyteam.extension
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.CalendarContract
+import android.provider.CalendarContract.Events
 import com.google.android.gms.maps.model.LatLng
-import java.util.*
+import es.us.managemyteam.data.model.LocationBo
+import java.util.TimeZone
+
 
 private const val GOOGLE_MAPS_URL = "http://maps.google.com/maps?q="
 private const val PREFIX_PHONE = "tel:"
@@ -21,13 +23,18 @@ fun Context.startGoogleMapsByLatLng(latLng: LatLng) {
     startUrlActionView(GOOGLE_MAPS_URL + latLng.toGoogleMapsFormat())
 }
 
-@SuppressLint("MissingPermission")
-fun Context.startCalendarEvent(title: String?, dateInit: Long?) {
-    val uri = contentResolver.insert(
-        CalendarContract.Events.CONTENT_URI,
-        getContentValues(title, dateInit)
-    )
-    startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
+fun Context.startCalendarEvent(title: String?, dateInit: Long?, locationBo: LocationBo?) {
+    val intent: Intent = Intent(Intent.ACTION_INSERT)
+        .setData(Events.CONTENT_URI)
+        .putExtra(
+            CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+            dateInit
+        )
+        .putExtra(Events.TITLE, title)
+        .putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY)
+        .putExtra(Events.EVENT_LOCATION, locationBo?.address)
+
+    startActivity(intent)
 }
 
 private fun getContentValues(
